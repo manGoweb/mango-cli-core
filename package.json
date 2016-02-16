@@ -1,39 +1,18 @@
 {
-  "name": "mango-cli",
-  "version": "0.25.0",
-  "description": "Scaffold and build your projects way more faster than before. Preconfigured frontend devstack to the absolute perfection. Fully automated to save your precious time. Ready for any type of web project.",
+  "name": "mango-cli-core",
+  "version": "1.0.0",
+  "description": "Core module for the mango-cli",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
   "bin": {
-    "mango": "bin/mango"
+    "mango-core": "bin/mango-core"
   },
-  "preferglobal": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/manGoweb/mango-cli.git"
+    "url": "https://github.com/manGoweb/mango-cli-core.git"
   },
   "keywords": [
-    "browserify",
-    "browsersync",
-    "build",
-    "clean-css",
-    "coffeescript",
-    "frontend",
-    "generator",
-    "gulp",
-    "imagemin",
-    "jade",
-    "mango",
-    "mangoweb",
-    "patternlab",
-    "react",
-    "sass",
-    "scaffolding",
-    "sourcemaps",
-    "stylus",
-    "uglifyjs"
+    "mango-cli",
+    "mangoweb"
   ],
   "author": "manGoweb s.r.o. <info@mangoweb.cz> (www.mangoweb.cz)",
   "contributors": [
@@ -44,34 +23,25 @@
   "bugs": {
     "url": "https://github.com/manGoweb/mango-cli/issues"
   },
-  "homepage": "https://github.com/manGoweb/mango-cli",
+  "homepage": "http://mangoweb.github.io/mango",
   "dependencies": {
     "autoprefixer": "^6.3.1",
     "babel-core": "^5.8.25",
     "better-console": "^0.2.3",
-    "browser-sync": "^2.11.1",
-    "chokidar": "^1.0.1",
     "commander": "^2.5.0",
-    "compression": "^1.6.1",
     "del": "^2.2.0",
-    "gift": "^0.7.0",
     "gulp": "^3.8.10",
-    "gulp-cached": "^1.1.0",
     "gulp-data": "^1.2.0",
     "gulp-filter": "^3.0.1",
     "gulp-front-matter": "^1.2.3",
-    "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.0.0",
     "gulp-jade": "^1.1.0",
-    "gulp-jade-inheritance": "^0.5.2",
     "gulp-less": "^3.0.2",
     "gulp-minify-css": "^1.2.1",
-    "gulp-plumber": "^1.0.0",
     "gulp-postcss": "^6.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.3",
     "gulp-sass": "^2.3.0-beta.1",
-    "gulp-sourcemaps": "^1.2.8",
     "gulp-stylus": "^2.3.0",
     "gulp-uglify": "^1.0.2",
     "gulp-util": "^3.0.2",
@@ -80,21 +50,8 @@
     "jade": "^1.10.0",
     "jsonfile": "^2.0.0",
     "lodash": "3.10.1",
-    "minimatch": "^3.0.0",
-    "mocha": "^2.4.5",
     "nib": "^1.0.4",
-    "node-notifier": "^4.1.2",
-    "patternlab-node": "git://github.com/manGoweb/patternlab-node.git#v0.3.0",
-    "run-sequence": "^1.0.2",
     "semver": "^5.1.0",
-    "should": "^8.2.1",
     "webmake-coffee": "^0.1.4"
-  },
-  "config": {
-    "default_fork_repo": "https://github.com/mangoweb/mango-cli-example.git"
-  },
-  "devDependencies": {
-    "mocha": "^2.0.1",
-    "should": "^8.0.2"
   }
 }

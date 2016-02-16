@@ -13,32 +13,6 @@ program
 	.version(pkg.version)
 
 program
-	.command('init [directory]')
-	.description('initialize a new project')
-	.option('-s, --source [git_repository]', 'Template repository to fork. Defaults to ' + pkg.config.default_fork_repo)
-	.action(function init(directory, options) {
-		var dir = path.resolve(process.cwd(), directory || '.')
-		var mango = new Mango(dir)
-		var source = options.source || pkg.config.default_fork_repo
-		log.time('~ initialization time')
-
-		mango.init(source, function(err) {
-			log.timeEnd('~ initialization time')
-			checkError(err)
-
-			var config = new Config(dir).get()
-			if(config.hooks && config.hooks.init) {
-				log.info('~ init hook: ' + config.hooks.init)
-				runcmd(config.hooks.init, dir, function() {
-					log.info('/>')
-				})
-			} else {
-				log.info('/>')
-			}
-		})
-	})
-
-program
 	.command('install [packages...]')
 	.alias('i')
 	.description('NPM install of passed packages or dependencies specified in config')
@@ -131,42 +105,6 @@ program
 		else {
 			doBuild()
 		}
-
-	})
-
-program
-	.command('dev')
-	.alias('d')
-	.description('start a development mode and watch for assets change')
-	.option('-p, --proxy [http_proxy]', 'Proxy to a server instead of starting built-in')
-	.action(function (options) {
-		var config = new Config().get()
-		var mango = new Mango(process.cwd(), config)
-
-		var doDev = function() {
-			mango.dev(options.proxy, function(err) {
-				checkError(err)
-				if(config.hooks && config.hooks.dev) {
-					log.info('~ dev hook: ' + config.hooks.dev)
-					runcmd(config.hooks.dev, null, function() {
-						log.info('/>')
-					})
-				} else {
-					log.info('/>')
-				}
-			})
-		}
-
-		// Run predev hook first
-		if(config.hooks && config.hooks.predev) {
-			log.info('~ predev hook: ' + config.hooks.predev)
-			runcmd(config.hooks.predev, null, doDev)
-		}
-		// Run immediately
-		else {
-			doDev()
-		}
-
 
 	})
 
